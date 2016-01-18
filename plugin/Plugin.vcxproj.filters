@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\User">
+      <UniqueIdentifier>{1597c345-d148-4f66-b5e8-5caf3b8288d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protocol">
+      <UniqueIdentifier>{215e8f42-bb45-4619-ac20-dc5e75af2ed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User\Prodef">
+      <UniqueIdentifier>{f11e0dd2-5def-45dd-abba-da904b925032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User\Hooks">
+      <UniqueIdentifier>{7888fb59-be50-4124-85aa-5c4744a5a370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HexStuff">
+      <UniqueIdentifier>{6ebbea36-a7ef-4e96-a104-273ad4579472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HexStuff\Memory">
+      <UniqueIdentifier>{0ae57640-9ecb-4329-8dd8-b472fe3cf965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HexStuff\Fix">
+      <UniqueIdentifier>{48379926-62ca-486d-b84d-4c3f35ae089c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Configs">
+      <UniqueIdentifier>{ed162e27-63bf-40c2-bba3-a192263f85db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TMessage">
+      <UniqueIdentifier>{31d9fbc4-434c-4792-a6bf-7288b3cbe208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LogProc">
+      <UniqueIdentifier>{254cbf7c-807e-40b8-bab8-80899f3cccbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protocol\Client">
+      <UniqueIdentifier>{77d25ad9-de85-4250-9fe6-f9a70d1e4e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protocol\DataServer">
+      <UniqueIdentifier>{5f5db25d-498f-44f3-993c-9996d29827e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CashShop">
+      <UniqueIdentifier>{3cbf3489-ec00-422e-9932-c58014f2f2cd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Prodef.h">
+      <Filter>Source Files\User\Prodef</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.h">
+      <Filter>Source Files\User\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Source Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilits.h">
+      <Filter>Source Files\HexStuff\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="Offsets.h">
+      <Filter>Source Files\HexStuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Fixes.h">
+      <Filter>Source Files\HexStuff\Fix</Filter>
+    </ClInclude>
+    <ClInclude Include="Configs.h">
+      <Filter>Source Files\Configs</Filter>
+    </ClInclude>
+    <ClInclude Include="Readscript.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TMessage.h">
+      <Filter>Source Files\TMessage</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Source Files\Protocol\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="DSProtocol.h">
+      <Filter>Source Files\Protocol\DataServer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Prodef.cpp">
+      <Filter>Source Files\User\Prodef</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks.cpp">
+      <Filter>Source Files\User\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilits.cpp">
+      <Filter>Source Files\HexStuff\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="Fixes.cpp">
+      <Filter>Source Files\HexStuff\Fix</Filter>
+    </ClCompile>
+    <ClCompile Include="Configs.cpp">
+      <Filter>Source Files\Configs</Filter>
+    </ClCompile>
+    <ClCompile Include="TMessage.cpp">
+      <Filter>Source Files\TMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol.cpp">
+      <Filter>Source Files\Protocol\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="DSProtocol.cpp">
+      <Filter>Source Files\Protocol\DataServer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Plugin.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
