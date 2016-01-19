@@ -14,24 +14,24 @@ void cFixes::Crack()
 {
 	const char DATA_PATH[] = { "..\\Data\\" };
 	const char SERVER_INFO[] = { "Data\\ServerInfo.dat" };
-#ifdef _GS_CS
-	Utilits.SetByte(oCommonjmp,JMP);
-#endif
 	//Change Data Folder Path
 	memcpy((int*)oDataPath0,DATA_PATH,sizeof(DATA_PATH));
-#if(_GS_CS)
-	Utilits.SetByte(oDataPath1,0xB0);
-	Utilits.SetByte(oDataPath2,0xB0);
-	Utilits.SetByte(oDataPath3,0xB0);
-#else
-	Utilits.SetByte(oDataPath1,0x10);
-
-	BYTE DataPath[] = { 0x68, 0x10, 0x4A };
-	memcpy((int*) oDataPath2,DataPath,sizeof(DataPath));
-	memcpy((int*) oDataPath3,DataPath,sizeof(DataPath));
-#endif
 	//Change ServerInfo.dat
 	memcpy((int*)oServerInfoPath0,SERVER_INFO,sizeof(SERVER_INFO));
+/*#ifdef _GS_CS
+	Utilits.SetByte(oCommonjmp,JMP);
+#endif*/
+#if(_GS_CS)
+	Utilits.SetByte(oDataPath1+1,0xB0);
+	Utilits.SetByte(oDataPath2+1,0xB0);
+	Utilits.SetByte(oDataPath3+1,0xB0);
+#else
+	Utilits.SetByte(oDataPath1+1,0x10);
+	BYTE DataPathH[] = {0x68, 0x10, 0x4A};
+	memcpy((int*) oDataPath2,DataPathH,sizeof(DataPathH));
+	memcpy((int*) oDataPath3,DataPathH,sizeof(DataPathH));
+#endif
+	
 }
 
 void cFixes::ASMFixes()
@@ -93,7 +93,8 @@ void cFixes::ASMFixes()
 	Utilits.SetByte(oGSClose2,0xEB);
 	Utilits.SetByte(oGSClose3+5,0x00);
 	//AppointItemDrop.txt Reload Error 	
-	Utilits.SetByte(oAppointItemDrop,0xEB);
+	BYTE AppointH[] = {0xE9, 0x5A, 0x01, 0x00, 0x00, 0x90};
+	memcpy((int*) oAppointItemDrop,GSCloseH,sizeof(GSCloseH));
 //==========================================================================
 	//disable CheckSum
 	Utilits.SetRetn(oCheckSum0);

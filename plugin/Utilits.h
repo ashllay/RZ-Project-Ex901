@@ -14,11 +14,6 @@ enum ASM
 	RETN		= 0xC3,
 };
 
-void MyProtocol(DWORD aIndex,LPBYTE aRecv,DWORD aLen);
-int	gObjGetItemCountInChaosbox(int aIndex, short type);
-
-unsigned char Role(unsigned char range);
-
 class cUtilits
 {
 public:
@@ -27,12 +22,11 @@ public:
 	void SetRetn(DWORD dwOffset);
 	void SetRRetn(DWORD dwOffset);
 	void SetByte(DWORD dwOffset, BYTE btValue);
-
 	DWORD SetHook(const LPVOID dwMyFuncOffset, const LPVOID dwJmpOffset, const BYTE cmd);
-
 	DWORD WriteMemory(const LPVOID lpAddress, const LPVOID lpBuf, const UINT uSize);
 	DWORD SetRange(const LPVOID dwAddress, const USHORT wCount, const BYTE btValue);
 	DWORD SetJmp(const LPVOID dwEnterFunction, const LPVOID dwJMPAddress);
+	void HookExactOffset(DWORD Function, DWORD ToHook, BYTE Type);
 	bool IsBadFileLine(char *FileLine, int &Flag);
 };
 extern cUtilits Utilits;

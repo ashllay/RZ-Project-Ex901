@@ -20,12 +20,13 @@ extern cFixes Fixes;
 //#				Crack do Gameserver				# //
 //-----------------------------------------------------------//
 #define oDataPath0			0x00FE4A10//
-#define oDataPath1			0x00B39814+1//
+#define oDataPath1			0x00B39814//
 #define oDataPath2			0x00B39823//
 #define oDataPath3			0x00B39832//
 #define oServerInfoPath0	0x00FE4BAC//
-
-
+//-----------------------------------------------------------//
+//				Debug logs
+//-----------------------------------------------------------//
 #define	oCGClientMsg		0x008520C0//ok
 #define	oGuarditBreach		0x00895930//ok
 #define	g_bAbilityDebug0	0x00AC5539//
@@ -41,18 +42,6 @@ extern cFixes Fixes;
 #define	oNpcTalkLog			0x00B7EF27
 #define	og_AccessoryOptionFlag0	0x00A98D89
 #define	og_AccessoryOptionFlag1	0x00A98E53
-#define	g_nDebugViewFlag	0x00B2DB10+6
-#define	oCheckSum0			0x00A79CB0
-#define	oCheckSum1			0x0088C020
-
-#define	oGMMoveMkey			0x00B28543
-
-#define	oPersonalID			0x00852A4A
-#define	oGuildID0			0x00872DDE
-#define	oGuildID1			0x00872C14
-#define	oAllowExAnc			0x00B0A1B0//??
-#define	oAllowExSock		0x00B0A252//??
-#define	oAllowJOHAnc		0x00BA56B5//??
 
 #define	oMuunLog0			0x00CF200E
 #define	oMuunLog1			0x00CF9056
@@ -70,8 +59,22 @@ extern cFixes Fixes;
 #define	og_bAbilityDebug	0x00AC552F
 #define	og_nDebugViewFlag	0x00B2DB29
 #define	og_AccessoryOptionFlag	0x00B2EA4E
+//-----------------------------------------------------------//
+//				Fixes
+//-----------------------------------------------------------//
+#define	oCheckSum0			0x00A79CB0
+#define	oCheckSum1			0x0088C020
 
-#define	oAppointItemDrop	0x0080029D
+#define	oGMMoveMkey			0x00B28543
+
+#define	oPersonalID			0x00852A4A
+#define	oGuildID0			0x00872DDE
+#define	oGuildID1			0x00872C14
+#define	oAllowExAnc			0x00B0A1B0//??
+#define	oAllowExSock		0x00B0A252//??
+#define	oAllowJOHAnc		0x00BA56B5//??
+
+#define	oAppointItemDrop	0x00800396//fixed
 
 #define	oJOLOpt0			0x00A1AA01
 #define	oJOLOpt1			0x008378F1
@@ -104,20 +107,20 @@ extern cFixes Fixes;
 //#				Crack do Gameserver				# //
 //-----------------------------------------------------------//
 #define oDataPath0			0x010666B0//ok
-#define oDataPath1			0x00B81CA4+1//ok
+#define oDataPath1			0x00B81CA4//ok
 #define oDataPath2			0x00B81CB3//ok
 #define oDataPath3			0x00B81CC2//ok
+
 #define oServerInfoPath0	0x0106684C//ok
 #define	oCommonjmp			0x00B85CEF
-
+//-----------------------------------------------------------//
+//				Debug logs
+//-----------------------------------------------------------//
 #define	oCGClientMsg		0x0087CC30//ok
 #define	oGuarditBreach		0x008C5890//ok
 #define	g_bAbilityDebug0	0x00B0F479//ok
-
 #define	g_bAbilityDebug2	0x00AE26A3//ok
 #define	oShieldLog			0x00AC74A1//5nop//ok
-//#define	oStrangeLog			0x005A8901
-
 #define	oAttackPacketLog	0x0087688B//ok
 #define	oMagicAttackLog		0x008A4BE4//ok
 #define	oDebugOutput		0x00C08510//ok
@@ -126,48 +129,46 @@ extern cFixes Fixes;
 #define	oNpcTalkLog			0x00BFC7D7//ok
 #define	og_AccessoryOptionFlag0	0x00AE2120//ok
 #define	og_AccessoryOptionFlag1	0x00AE21EA//ok
-#define	g_nDebugViewFlag	0x00B75FDF+6//ok
-#define	oCheckSum0			0x00AC2EA0//ok
-#define	oCheckSum1			0x008B70C0//ok
-
-#define	oGMMoveMkey			0x00B70A73//ok
-
-#define	oPersonalID			0x0087D5BA//ok
-#define	oGuildID0			0x0089D90B//ok
-#define	oGuildID1			0x0089D6E5//ok
-#define	oAllowExAnc			0x00B52810//ok
-#define	oAllowExSock		0x00B528B2//ok
-#define	oAllowJOHAnc		0x00C23945//ok
-
 #define	oMuunLog0			0x00D6C89E//ok
 #define	oMuunLog1			0x00D738E6//ok
 #define	oMuunLog2			0x00D7394C//ok
 #define	oMuunLog3			0x00D76A51//ok
 #define	oMuunLog4			0x00D7895E//ok
-
 #define	oStrangeLog0		0x00AE1BD8//ok
 #define	oStrangeLog1		0x00AE9E8E//ok
 #define	oStrangeLog2		0x00DA092A//ok
 #define	oStrangeLog3		0x00D73CFD//ok
-
 #define	oXMasDebugMsg		0x00937DD0//ok
-
 #define	og_bAbilityDebug	0x00B0F46F//ok
 #define	og_nDebugViewFlag	0x00B75FF8//ok
 #define	og_AccessoryOptionFlag	0x00B76F1D//ok
-
-#define	oAppointItemDrop	0x00829CDD//ok
-
+#define	oAppointItemDrop	0x00829DD6//ok
+//-----------------------------------------------------------//
+//				Fixes
+//-----------------------------------------------------------//
+#define	oCheckSum0			0x00AC2EA0//ok
+#define	oCheckSum1			0x008B70C0//ok
+//--
+#define	oGMMoveMkey			0x00B70A73//ok
+//--
+#define	oPersonalID			0x0087D5BA//ok
+#define	oGuildID0			0x0089D90B//ok
+#define	oGuildID1			0x0089D6E5//ok
+//--
+#define	oAllowExAnc			0x00B52810//ok
+#define	oAllowExSock		0x00B528B2//ok
+#define	oAllowJOHAnc		0x00C23945//ok
+//--
 #define	oJOLOpt0			0x00A622A1//ok
 #define	oJOLOpt1			0x00860DA1//ok
 #define	oJOLOpt2			0x00B5E0CD//ok
 #define	oJOLOpt3			0x00ABB2D7//ok
 #define	oJOLOpt4			0x00A622D7//ok
-
+//--
 #define	oGSClose0			0x00B89C90//ok
 #define	oGSClose1			0x00A665AA//ok
-#define	oGSClose2			0x00A1731A//ok
-#define	oGSClose3			0x00B1037E//ok
+#define	oGSClose2			0x00A5EB4A//ok
+#define	oGSClose3			0x00B589DE//ok
 		//Remove Potion Limit
 #define oMaxPot0			0x0080E313//ok
 #define oMaxPot1			0x009D36A3//ok

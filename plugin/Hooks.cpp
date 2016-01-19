@@ -26,7 +26,7 @@ void gHooks::ChangeGSStyle()
 #else
 	BYTE CBText[] = {"RZ GameServerCS"};
 #endif
-	memcpy((int*)BARTEXT, CBText, sizeof(CBText));
+	memcpy((int*)oBarText,CBText,sizeof(CBText));
 	//change colors
 	DWORD Color;
 	Color = (RGB(54,54,54));//cor texto da bar

@@ -6,7 +6,7 @@
 //-----------------------------------------------------------//
 #define GREENBARTEXTCOLOR						(0x00A139A8+1)//gs10
 #define GREENBAR								(0x00A133D7+1)//gs10
-#define BARTEXT									(0x00FD4124)//gs10
+#define oBarText									(0x00FD4124)//gs10
 
 #define CLOSE_TIME									(0x00A17C0A+3)//gs10
 
@@ -47,7 +47,7 @@
 //-----------------------------------------------------------//
 #define GREENBARTEXTCOLOR						(0x00A5B098+1)//gscs10
 #define GREENBAR								(0x00A5AAC7+1)//gscs10
-#define BARTEXT									(0x01055F3C)//gscs10
+#define oBarText								(0x01055F3C)//gscs10
 
 #define CLOSE_TIME								(0x00A5F43A+3)//gscs10
 

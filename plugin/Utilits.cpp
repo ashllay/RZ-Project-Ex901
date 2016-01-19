@@ -86,6 +86,11 @@ DWORD cUtilits::SetJmp(const LPVOID dwEnterFunction, const LPVOID dwJMPAddress)
 
 	return Utilits.WriteMemory(dwEnterFunction, (LPVOID) btBuf, sizeof(btBuf));
 }
+void cUtilits::HookExactOffset(DWORD Function, DWORD ToHook, BYTE Type)
+{
+	*(BYTE*)ToHook = Type;
+	*(DWORD*)(ToHook+1) = Function;
+}
 //------------------------------------------------------------------------//
 bool cUtilits::IsBadFileLine(char *FileLine, int &Flag)
 {
