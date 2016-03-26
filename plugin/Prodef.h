@@ -3,7 +3,7 @@
 #ifndef _PRODEF_H
 #define _PRODEF_H
 
-#define OBJECT_MAXRANGE(aIndex) ( ((aIndex) < 0 )?FALSE: ( (aIndex) > OBJECT_MAX -1 )?FALSE:TRUE   )
+#define OBJECT_MAXRANGE(aIndex) ( ((aIndex) < 0 )?FALSE: ( (aIndex) > OBJ_MAX -1 )?FALSE:TRUE   )
 void BuxConvert(char* buf, int size);
 void PHeadSetB(LPBYTE lpBuf, BYTE head, int size);
 void PHeadSetBE(LPBYTE lpBuf, BYTE head,int size);
@@ -37,22 +37,22 @@ void PHeadSubSetBE(LPBYTE lpBuf, BYTE head,BYTE sub, int size);
 #define HIDWORD(l)         ((DWORD)(__int64(l) >> __int64(32)))   
 
 // ADVANCE DEVIRVATED
-struct PBMSG_HEAD	// Packet - Byte Type
+struct PBMSG_HEAD
 {
 public:
-	void set ( LPBYTE lpBuf, BYTE head, BYTE size)	// line : 18
+	void Set(LPBYTE lpBuf, BYTE Head, BYTE Size)
 	{
 		lpBuf[0] = 0xC1;
-		lpBuf[1] = size;
-		lpBuf[2] = head;
-	};	// line : 22
+		lpBuf[1] = Size;
+		lpBuf[2] = Head;
+	};
 
-	void setE ( LPBYTE lpBuf, BYTE head, BYTE size)	// line : 25
+	void SetE(LPBYTE lpBuf, BYTE Head, BYTE Size)
 	{
 		lpBuf[0] = 0xC3;
-		lpBuf[1] = size;
-		lpBuf[2] = head;
-	};	// line : 29
+		lpBuf[1] = Size;
+		lpBuf[2] = Head;
+	};
 
 	BYTE c;
 	BYTE size;
@@ -89,17 +89,23 @@ public:
 
 
 
-struct PBMSG_HEAD2	// Packet - Byte Type
+struct PBMSG_HEAD2 
 {
-
 public:
-
-	void set( LPBYTE lpBuf, BYTE head, BYTE sub, BYTE size)
+	void Set(LPBYTE lpBuf, BYTE Head, BYTE Sub, BYTE Size)
 	{
 		lpBuf[0] = 0xC1;
-		lpBuf[1] = size;
-		lpBuf[2] = head;
-		lpBuf[3] = sub;
+		lpBuf[1] = Size;
+		lpBuf[2] = Head;
+		lpBuf[3] = Sub;
+	};
+
+	void SetE(LPBYTE lpBuf, BYTE Head, BYTE Sub, BYTE Size)
+	{
+		lpBuf[0] = 0xC3;
+		lpBuf[1] = Size;
+		lpBuf[2] = Head;
+		lpBuf[3] = Sub;
 	};
 
 	BYTE c;
@@ -111,13 +117,13 @@ public:
 struct PWMSG_HEAD2
 {
 public:
-	void set(LPBYTE lpBuf, BYTE head, BYTE sub, int size)
-	{
+
+	void Set(LPBYTE lpBuf, BYTE Head, BYTE Sub, int Size){
 		lpBuf[0] = 0xC2;
-		lpBuf[1] = SET_NUMBERH(size);
-		lpBuf[2] = SET_NUMBERL(size);
-		lpBuf[3] = head;
-		lpBuf[4] = sub;
+		lpBuf[1] = SET_NUMBERH(Size);
+		lpBuf[2] = SET_NUMBERL(Size);
+		lpBuf[3] = Head;
+		lpBuf[4] = Sub;
 	}
 
 	BYTE c;
@@ -163,10 +169,35 @@ struct PMSG_NOTICE
 	char Notice[256];
 };
 
+struct PMSG_TEST
+{
+	PWMSG_HEAD h;
+	char testbuf[1996];	// 4
+	int count;	// 7D0
+};
+
+namespace LOG
+{
+	enum COLORS
+	{
+		BLACK = 1,
+		RED = 2,
+		GREEN = 3,
+		BLUE = 4,
+		DARKRED = 5,
+		DARKBLUE = 6,
+		PINK = 7
+	};
+};
+
 //Configs Defines // 
 #define RZItems				"..\\RZData\\Items.ini"	
 #define RZGS				".\\GameServer.ini"
 #define RZCommon			"..\\RZData\\Common.ini"
 #define RZLog				".\\Log"
 #define RZEvents			"..\\RZData\\Events.ini"
+
+#define RZCmd				"..\\RZData\\Commands.ini"
+#define RZGM				"..\\RZData\\GMSystem.txt"
+#define RZPkClear			"..\\RZData\\PkClearGuard.ini"
 #endif

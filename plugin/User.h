@@ -7,22 +7,24 @@
 //strings connect : [%d][%s]
 #define OBJECT_BASE     (*(CHAR**)0x0C937E8C)//.10
 #define OBJECT_SIZE		0x4DE0//10
-#define OBJECT_MIN	    9000
-#define OBJECT_MAX      10000
+#define OBJ_MIN			9000
+#define OBJ_MAX			10000
 #define	OBJMAXUSER		1000
 #define	oVirtualProtect	0x00FA6FFE
 #else
 #define OBJECT_BASE     (*(CHAR**)0x0A93DBD8)
 #define OBJECT_SIZE		0x4DF0
-#define OBJECT_MIN			6400
-#define OBJECT_MAX			7400
+#define OBJ_MIN			6400
+#define OBJ_MAX			7400
 #define	oVirtualProtect	0x01022FFE
 #endif
 
-#define OBJECT_POINTER(aIndex) ((aIndex * OBJECT_SIZE) + OBJECT_BASE)
-#define OBJECT_TABINDEX(lpObj) ((lpObj - OBJECT_BASE) / OBJECT_SIZE)
-#define OBJMAX_RANGE(aIndex) ( (aIndex < 0) ? false : (aIndex > (OBJECT_MAX - 1)) ? false : true )
+#define OBJECT_POINTER(aIndex)((aIndex * OBJECT_SIZE) + OBJECT_BASE)
+//#define POBJ(aIndex)((aIndex * OBJECT_SIZE) + OBJECT_BASE)
 
+#define OBJECT_TABINDEX(lpObj) ((lpObj - OBJECT_BASE) / OBJECT_SIZE)
+//#define OBJMAX_RANGE(aIndex)((aIndex < 0) ? false : (aIndex > (OBJ_MAX - 1)) ? false : true )
+#define OBJMAX_RANGE(aIndex)(((aIndex) < 0)?FALSE:((aIndex) > OBJ_MAX-1)?FALSE:TRUE)
 #define BC_MAP_RANGE(value) ( ( value == MAP_INDEX_BLOODCASTLE8 ) ? TRUE : ( value < MAP_INDEX_BLOODCASTLE1 ) ? FALSE : ( value > MAP_INDEX_BLOODCASTLE7) ? FALSE : TRUE )
 
 #define CS_CLASS                    0
@@ -35,6 +37,228 @@
 #define DBI_GET_LEVEL(x)            (((x)>>3)& MAX_ITEM_LEVEL )
 
 #define CS_SET_WING1(x)             (((x) & 0x03 ) << 2 )
+
+namespace CLASS
+{
+	enum INDEX 
+	{
+		DARK_WIZARD=0,
+		DARK_KNIGHT=1,
+		FAIRY_ELF=2,
+		MAGIC_GLADIATOR=3,
+		DARK_LORD=4,
+		SUMMONER=5,
+		RAGE_FIGHTER=6
+	};
+};
+
+typedef struct BUFF_EFFECT_DATA
+{
+    unsigned char BuffIndex;
+    unsigned char BuffEffectType;
+    unsigned char ItemType;
+    unsigned char ItemIndex;
+    char BuffName[20];
+    unsigned char BuffType;
+    unsigned char NoticeType;
+    unsigned char ClearType;
+    char BuffDescript[100];
+} *PBUFF_EFFECT_DATA;
+
+enum eBuffEffectIndex
+{
+    BUFFTYPE_NONE=0,
+    BUFFTYPE_ATTACK_POWER_INC=1,
+    BUFFTYPE_DEFENSE_POWER_INC=2,
+    BUFFTYPE_ATTDEF_POWER_INC=3,
+    BUFFTYPE_MELEE_DEFENSE_INC=4,
+    BUFFTYPE_CRITICAL_DMG_INC=5,
+    BUFFTYPE_INFINITY_ARROW=6,
+    BUFFTYPE_AG_RECOVERY_INC=7,
+    BUFFTYPE_HP_INC=8,
+    BUFFTYPE_MANA_INC=9,
+    BUFFTYPE_BLESS_POTION=10,
+    BUFFTYPE_SOUL_POTION=11,
+    BUFFTYPE_MAGIC_CANCEL=12,
+    BUFFTYPE_CASTLE_DOOR_STATE=13,
+    BUFFTYPE_CASTLE_DEFENSE_MARK=14,
+    BUFFTYPE_CASTLE_ATTACK_MARK=15,
+    BUFFTYPE_CASTLE_ATTACK_MARK_2=16,
+    BUFFTYPE_CASTLE_ATTACK_MARK_3=17,
+    BUFFTYPE_INVISABLE=18,
+    BUFFTYPE_DARKLORD_CASTLE_SKILL=19,
+    BUFFTYPE_CASTLE_CROWN_STATE=20,
+    BUFFTYPE_CRYWOLF_CONTRACT_ENABLE=21,
+    BUFFTYPE_CRYWOLF_CONTRACT_DISABLE=22,
+    BUFFTYPE_CRYWOLF_CONTRACT=23,
+    BUFFTYPE_CRYWOLF_CONTRACT_TRY=24,
+    BUFFTYPE_CRYWOLF_OCCUPATION=25,
+    BUFFTYPE_CRYWOLF_CONTRACT_HERO=26,
+    BUFFTYPE_CRYWOLF_NPC_INVISABLE=27,
+    BUFFTYPE_GM_MARK=28,
+    BUFFTYPE_PCBANG_POINT_MARK1=29,
+    BUFFTYPE_PCBANG_POINT_MARK2=30,
+    BUFFTYPE_PCBANG_POINT_MARK3=31,
+    BUFFTYPE_TEMPLE_QUICKNESS=32,
+    BUFFTYPE_TEMPLE_SUBLIMATION=33,
+    BUFFTYPE_TEMPLE_PROTECTION=34,
+    BUFFTYPE_HALLOWEEN_BLESS=35,
+    BUFFTYPE_HALLOWEEN_ANGER=36,
+    BUFFTYPE_HALLOWEEN_CRY=37,
+    BUFFTYPE_HALLOWEEN_FOOD=38,
+    BUFFTYPE_HALLOWEEN_DRINK=39,
+    BUFFTYPE_PCS_MARK1=40,
+    BUFFTYPE_PCS_MARK2=41,
+    BUFFTYPE_PCS_MARK3=42,
+    BUFFTYPE_PCS_MARK4=43,
+    BUFFTYPE_PCS_SCROLL_HASTE=44,
+    BUFFTYPE_PCS_SCROLL_DEFENSE=45,
+    BUFFTYPE_PCS_SCROLL_ANGER=46,
+    BUFFTYPE_PCS_SCROLL_MAGIC=47,
+    BUFFTYPE_PCS_SCROLL_HEALTH=48,
+    BUFFTYPE_PCS_SCROLL_MANA=49,
+    BUFFTYPE_PCS_MEDICINE_STRENGTH=50,
+    BUFFTYPE_PCS_MEDICINE_DEXTERITY=51,
+    BUFFTYPE_PCS_MEDICINE_VITALITY=52,
+    BUFFTYPE_PCS_MEDICINE_ENERGY=53,
+    BUFFTYPE_PCS_MEDICINE_LEADERSHIP=54,
+    BUFFTYPE_POISON=55,
+    BUFFTYPE_FREEZE=56,
+    BUFFTYPE_STONE=57,
+    BUFFTYPE_DEFENSE_POWER_DEC=58,
+    BUFFTYPE_ATTACK_POWER_DEC=59,
+    BUFFTYPE_MAGIC_POWER_DEC=60,
+    BUFFTYPE_STUN=61,
+    BUFFTYPE_MONSTER_MAGIC_DEFENSE=62,
+    BUFFTYPE_MONSTER_MAGIC_IMMUNE=63,
+    BUFFTYPE_MONSTER_MELEE_IMMUNE=64,
+    BUFFTYPE_RESTRICTION=65,
+    BUFFTYPE_CRYWOLF_STATUE_LV1=66,
+    BUFFTYPE_CRYWOLF_STATUE_LV2=67,
+    BUFFTYPE_CRYWOLF_STATUE_LV3=68,
+    BUFFTYPE_CRYWOLF_STATUE_LV4=69,
+    BUFFTYPE_CRYWOLF_STATUE_LV5=70,
+    BUFFTYPE_DAMAGE_REFLECT=71,
+    BUFFTYPE_SLEEP=72,
+    BUFFTYPE_BLIND=73,
+    BUFFTYPE_BLOODDOT=74,
+    BUFFTYPE_FIREDOT=75,
+    BUFFTYPE_CURSED_ATTACK_DOWN=76,
+    BUFFTYPE_CURSED_DEFENSE_DOWN=77,
+    BUFFTYPE_CHERRYBLOSSOM_DRINK=78,
+    BUFFTYPE_CHERRYBLOSSOM_DUMPLING=79,
+    BUFFTYPE_CHERRYBLOSSOM_PETAL=80,
+    BUFFTYPE_BERSERKER=81,
+    BUFFTYPE_MAGIC_POWER_INC=82,
+    BUFFTYPE_FLAMESTRKE=83,
+    BUFFTYPE_GIGANTICSTORM=84,
+    BUFFTYPE_LIGHTNINGSHOCK=85,
+    BUFFTYPE_COLD=86,
+    BUFFTYPE_PCS_MARK5=87,
+    BUFFTYPE_PCS_MARK6=88,
+    BUFFTYPE_PCS_SCROLL_CRITICAL=89,
+    BUFFTYPE_PCS_SCROLL_EXCELLENT=90,
+    BUFFTYPE_CHRISTMAS_BLESS=91,
+    BUFFTYPE_SANTA_HEAL=92,
+    BUFFTYPE_SANTA_PROTECT=93,
+    BUFFTYPE_SANTA_POWER=94,
+    BUFFTYPE_SANTA_GUARD=95,
+    BUFFTYPE_SANTA_SPEED=96,
+    BUFFTYPE_SANTA_LUCKY=97,
+    BUFFTYPE_CHARM_GUARDIAN=99,
+    BUFFTYPE_CHARM_PROTECTITEM=100,
+    BUFFTYPE_PCS_MARK1_FOR_MASTER=101,
+    BUFFTYPE_PCS_MARK2_FOR_MASTER=102,
+    BUFFTYPE_OBSERVER=98,
+    BUFFTYPE_GLORYOFGLADIATOR=103,
+    BUFFTYPE_ASCENSION=105,
+    BUFFTYPE_PK_PENALTY=106,
+    BUFFTYPE_FIRST_FATIGUE=107,
+    BUFFTYPE_SECOND_FATIGUE=108,
+    BUFFTYPE_PARTY_EXP_INCREASE_SCROLL=112,
+    BUFFTYPE_MAX_AG_INCREASE_AURA=113,
+    BUFFTYPE_MAX_SD_INCREASE_AURA=114,
+    BUFFTYPE_REVITALIZATION_1=115,
+    BUFFTYPE_REVITALIZATION_2=116,
+    BUFFTYPE_REVITALIZATION_3=117,
+    BUFFTYPE_REVITALIZATION_4=118,
+    BUFFTYPE_PCS_MARK2_FOR_CASHITEM=119,
+    BUFFTYPE_HACKTOOL_USE_PENALTY=120,
+    BUFFTYPE_CASHITEM_SCROLL_HEALINGSCLOLL=121,
+    BUFFTYPE_SCULPT_HAWK=122,
+    BUFFTYPE_SCULPT_SHEEP=123,
+    BUFFTYPE_CHARM_ORC=124,
+    BUFFTYPE_CHARM_MAPLE=125,
+    BUFFTYPE_CHARM_GOLDEN_ORC=126,
+    BUFFTYPE_CHARM_GOLDEN_MAPLE=127,
+    BUFFTYPE_ARTIFACT_HORSESHOE=128,
+    BUFFTYPE_ENEMY_DEFENSE_IGNORANCE_RATE_INCREASE=129,
+    BUFFTYPE_VITALITY_INCREASE=130,
+    BUFFTYPE_DEFENSE_SUCCESS_RATE_INCREASE=131,
+    BUFFTYPE_DEFENSE_SUCCESS_RATE_DECREASE=132,
+    BUFFTYPE_IMMUNE=133,
+    BUFFTYPE_IRONDEFENSE=134,
+    BUFFTYPE_SKILLFULL_SWELLIFE=135,
+    BUFFTYPE_MASTERY_SWELLIFE=136,
+    BUFFTYPE_MISSING_BLOOD=137,
+    BUFFTYPE_INC_MAGICPOWER=138,
+    BUFFTYPE_MASTERY_INC_MAGICPOPWER=139,
+    BUFFTYPE_MASTERY_MAGICDEFENSE=140,
+    BUFFTYPE_REDUCE_ATTACK_SPEED=141,
+    BUFFTYPE_BLESS=142,
+    BUFFTYPE_STRENGTHEN_INFINITY_ARROW=143,
+    BUFFTYPE_MLS_BLIND=144,
+    BUFFTYPE_MASTERY_DRAINLIFE=145,
+    BUFFTYPE_ICE_HARDEN=146,
+    BUFFTYPE_EARTHPRISON=147,
+    BUFFTYPE_CRITICALDAMAGE_RATE_INC=148,
+    BUFFTYPE_CRITICALDAMATE_EXDAMAGE_INC=149,
+    BUFFTYPE_STRENGTHEN_BERSERKER=150,
+    BUFFTYPE_SKILLFUL_BERSERKER=151,
+    BUFFTYPE_MASTERY_BERSERKER=152,
+    BUFFTYPE_STRENGTHEN_INC_BLOCK_RATE=153,
+    BUFFTYPE_MASTERY_INC_BLOCK_RATE=154,
+    BUFFTYPE_INC_VITAL_MONK=155,
+    BUFFTYPE_STRENGTHEN_IGNORE_ENEMY_DEFENSE=156,
+    BUFFTYPE_FIREATTACK=157,
+    BUFFTYPE_ICEATTACK=158,
+    BUFFTYPE_POISONARROW=159,
+    BUFFTYPE_STRENGTHEN_POISONARROW=160,
+    BUFFTYPE_STRENGTHEN_BLESS=161,
+    BUFFTYPE_STRENGTHEN_WEAKNESS=162,
+    BUFFTYPE_STRENGTHEN_ENERVATION=163,
+    BUFFTYPE_DEC_DEFENSE=164,
+    BUFFTYPE_STRENGTHEN_IRONDEFENSE=165,
+    BUFFTYPE_BLOOD_HOWLING=166,
+    BUFFTYPE_STRENGTHEN_BLOOD_HOWLING=167,
+    BUFFTYPE_MASTERY_IGNORE_ENEMY_DEFENSE=168,
+    BUFFTYPE_DEBUFF_IGNORE_ENEMY_DEFENSE=169,
+    BUFFTYPE_PENTAGRAM_HALF_SD=174,
+    BUFFTYPE_PENTAGRAM_HALF_MP=175,
+    BUFFTYPE_PENTAGRAM_HALF_ATTACKSPEED=176,
+    BUFFTYPE_PENTAGRAM_HALF_HP=177,
+    BUFFTYPE_PENTAGRAM_STUN=178,
+    BUFFTYPE_PENTAGRAM_REDUCE_MOVE=186,
+    BUFFTYPE_SKILL_ATTACK_POWER_INC=179,
+    BUFFTYPE_DEFENSE_INC=180,
+    BUFFTYPE_CRITICAL_RATE_INC=181,
+    BUFFTYPE_POEWR_MAGICPOWER_INC=182,
+    BUFFTYPE_DAMAGE_DEC=183,
+    BUFFTYPE_ARCA_BATTLE_PENALTY=184,
+    BUFFTYPE_ARCA_BATTLE_REWARD=187,
+    BUFFTYPE_EXPUP_CHARM1=190,
+    BUFFTYPE_EXPUP_CHARM2=191,
+    BUFFTYPE_EXPUP_CHARM3=192,
+    BUFFTYPE_EXPUP_MARK1=193,
+    BUFFTYPE_EXPUP_MARK2=194,
+    BUFFTYPE_BLESSINGOFLIGHT=195,
+    BUFFTYPE_FENRIR=208,
+    BUFFTYPE_DARKHORSE=207,
+    BUFFTYPE_DINORANT=206,
+    BUFFTYPE_UNIRIA=205,
+    BUFFTYPE_END=206
+};
+
 enum MAP_INDEX
 {
     MAP_INDEX_RORENCIA=0,
@@ -367,12 +591,12 @@ typedef struct HITDAMAGE_STRUCT
     int HitDamage;
     unsigned long LastHitTime;
 } *PHITDAMAGE_STRUCT;
-typedef struct tagInterfaceState
+struct tagInterfaceState
 {
-    unsigned long use: 2;
-    unsigned long state: 4;
-    unsigned long type: 10;
-} *PtagInterfaceState;
+	unsigned long Use: 2;
+	unsigned long State: 4;
+	unsigned long Type: 10;
+};
 
 typedef struct _tagMUUN_EFFECT_LIST
 {
@@ -642,6 +866,77 @@ typedef struct tagDAMAGE_STATISTICS
     int iDamagePrintTime;
     unsigned long dwAccumDamage;
 } *PtagDAMAGE_STATISTICS;
+
+struct CItem
+{
+    unsigned long m_Number;
+    char m_serial;
+    short m_Type;
+    short m_Level;
+    unsigned char m_Part;
+    unsigned char m_Class;
+    bool m_TwoHand;
+    unsigned char m_AttackSpeed;
+    unsigned char m_WalkSpeed;
+    unsigned short m_DamageMin;
+    unsigned short m_DamageMax;
+    unsigned char m_SuccessfulBlocking;
+    unsigned short m_Defense;
+    unsigned short m_MagicDefense;
+    unsigned char m_Speed;
+    unsigned short m_DamageMinOrigin;
+    unsigned short m_DefenseOrigin;
+    unsigned short m_Magic;
+    unsigned short m_Curse;
+    float m_Durability;
+    unsigned short m_DurabilitySmall;
+    float m_BaseDurability;
+    unsigned char m_SpecialNum;
+    unsigned short m_Special[8];
+    unsigned char m_SpecialValue[8];
+    unsigned short m_RequireStrength;
+    unsigned short m_RequireDexterity;
+    unsigned short m_RequireEnergy;
+    unsigned short m_RequireLevel;
+    unsigned short m_RequireVitality;
+    unsigned short m_RequireLeaderShip;
+    unsigned short m_Leadership;
+    unsigned char m_RequireClass[7];
+    unsigned char m_Resistance[7];
+    int m_Value;
+    unsigned long m_SellMoney;
+    unsigned long m_BuyMoney;
+    int m_iPShopValue;
+    short m_sPShopBlessJewelValue;
+    short m_sPShopSoulJewelValue;
+    short m_sPShopChaosJewelValue;
+    bool m_bItemExist;
+    int m_OldSellMoney;
+    int m_OldBuyMoney;
+    unsigned char m_Option1;
+    unsigned char m_Option2;
+    unsigned char m_Option3;
+    unsigned char m_NewOption;
+    float m_DurabilityState[4];
+    float m_CurrentDurabilityState;
+    unsigned char m_SkillChange;
+    unsigned char m_QuestItem;
+    unsigned char m_SetOption;
+    unsigned char m_SetAddStat;
+    unsigned char m_IsValidItem;
+    unsigned char m_SkillResistance[7];
+    int m_IsLoadPetItemInfo;
+    int m_PetItem_Level;
+    __int64 m_PetItem_Exp;
+    unsigned char m_JewelOfHarmonyOption;
+    unsigned short m_HJOpStrength;
+    unsigned short m_HJOpDexterity;
+    unsigned char m_ItemOptionEx;
+    unsigned char m_BonusSocketOption;
+    unsigned char m_SocketOption[5];
+    unsigned char m_ImproveDurabilityRate;
+    unsigned char m_PeriodItemOption;
+};
 
 struct OBJECTSTRUCT
 {
@@ -1332,55 +1627,25 @@ struct OBJECTSTRUCT
     unsigned char m_btInvenPetPos;
     unsigned short m_wInvenPet;
     struct tagDAMAGE_STATISTICS m_DamageStatistics;
-};  typedef OBJECTSTRUCT * LPOBJ;//extern OBJECTSTRUCT* lpObj;
+};  
+typedef OBJECTSTRUCT * LPOBJ;//extern OBJECTSTRUCT* lpObj;
+
+typedef CItem* LPOBJITEM;
+//extern OBJECTSTRUCT			* gObj;
+
 //custom struct
-typedef	struct sAddTab 
+typedef	struct sAddTab
 {
-	//Add Stats
-	int		ADD_Type;
-	DWORD	ADD_Value;
-	//Post Delay
-	int		POST_Delay; 
-	CTime	POST_BanTime;
-	bool	POST_BanSignal;
-	CTime	CHAT_BanTime;
-	bool	CHAT_BanSignal;
-	//Anti AFK
-	int		AFK_Timer;
-	int		AFK_MapNumber;
-	int		AFK_X;
-	int		AFK_Y;
-	int		AFK_Warnings;
-	DWORD	AFK_Temp;	
-
-	//Online
-	int		ON_Min;   
-	int		ON_Sek;
-	int		ON_Hour;
-
-	LPBYTE aRecv;
-	//OffTrade
-	bool OfflineTrade;
-	bool CloseSetCheck;
-	//new
-	BYTE	OffTradeWaitItem;
-	BYTE	bOffTrade;
-	int		iOffTradeTime;
-
-	//////////////
-	// MONSTERS //
-	//////////////
-
-	bool	TEMP_Golden_Drop;
+	int		POST_Delay;
 }sAddTab;
-
-extern sAddTab AddTab[OBJECT_MAX];
-
+extern sAddTab AddTab[OBJ_MAX];
+//end of custom struct
 class cUser
 {
 public:
 	//private:
-	void LoginMsg(LPOBJ gObj);
+	int	 GetPlayerIndex(char *Name);
+	char* GetMapName(int MapId);
 };
 extern cUser User;
 

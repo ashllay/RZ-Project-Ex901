@@ -5,7 +5,7 @@
 #pragma warning(disable: 4099)
 #pragma warning(disable: 4244)
 
-//#define DebugConsole 1
+#define DebugConsole			0
 
 #define INTERNATIONAL_KOREAN
 
@@ -120,7 +120,13 @@
 #include "Readscript.h"
 #include "TMessage.h"
 #include "Main.h"
+#include "WzReadScript.h"
+#include "UserEx.h"
+#include "DSProtocol.h"
+#include "Console.h"
+#include "Commands.h"
+#include "Threading.h"
+#include "Commands.h"
+#include "PkClear.h"
 
-
-//#include "SecuredMemory.h"
 #endif

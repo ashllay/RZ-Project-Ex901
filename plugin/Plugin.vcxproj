@@ -127,31 +127,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CashShopInGame.h" />
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="Configs.h" />
+    <ClInclude Include="Console.h" />
     <ClInclude Include="DSProtocol.h" />
     <ClInclude Include="Fixes.h" />
+    <ClInclude Include="GmSystem.h" />
     <ClInclude Include="Hooks.h" />
+    <ClInclude Include="LargeRand.h" />
     <ClInclude Include="Main.h" />
+    <ClInclude Include="OfflineTrade.h" />
     <ClInclude Include="Offsets.h" />
+    <ClInclude Include="PkClear.h" />
     <ClInclude Include="Prodef.h" />
     <ClInclude Include="Protocol.h" />
     <ClInclude Include="Readscript.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="Threading.h" />
     <ClInclude Include="TMessage.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="UserEx.h" />
     <ClInclude Include="Utilits.h" />
+    <ClInclude Include="WzReadScript.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CashShopInGame.cpp" />
+    <ClCompile Include="Commands.cpp" />
     <ClCompile Include="Configs.cpp" />
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="DSProtocol.cpp" />
     <ClCompile Include="Fixes.cpp" />
+    <ClCompile Include="GmSystem.cpp" />
     <ClCompile Include="Hooks.cpp" />
+    <ClCompile Include="LargeRand.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OfflineTrade.cpp" />
+    <ClCompile Include="PkClear.cpp" />
     <ClCompile Include="Prodef.cpp" />
     <ClCompile Include="Protocol.cpp" />
+    <ClCompile Include="Threading.cpp" />
     <ClCompile Include="TMessage.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="UserEx.cpp" />
     <ClCompile Include="Utilits.cpp" />
   </ItemGroup>
   <ItemGroup>

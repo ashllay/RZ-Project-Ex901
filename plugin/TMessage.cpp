@@ -23,7 +23,7 @@ void CTNotice::SendNotice(int aIndex, int type, char* szMsg, ...)
 
 	PMSG_NOTICE pNotice;
 	TNotice.MakeNoticeMsg(&pNotice,type,szTemp);
-	DataSend(aIndex,(LPBYTE)&pNotice,pNotice.h.size);
+	DataSend(aIndex,(char*)&pNotice,pNotice.h.size);
 }
 
 void CTNotice::MsgSrv(LPOBJ gObj,char *Message, int Type)
@@ -59,7 +59,7 @@ void CTNotice::MessageAll(int Type, int Type2, LPOBJ gObj, char *Msg,...)
 		MsgSrv(gObj, Messages, Type2);
 	}
 	else
-		for(int i=OBJECT_MIN; i<=OBJECT_MAX; i++)
+		for(int i=OBJ_MIN; i<=OBJ_MAX; i++)
 		{											 
 			OBJECTSTRUCT *gObj = (OBJECTSTRUCT*)OBJECT_POINTER(i);
 			if(gObj->Connected < PLAYER_PLAYING)	continue;
@@ -108,7 +108,7 @@ void CTNotice::MessageLog(int Type,LPOBJ gObj, char *Msg,...)
 //	PMSG_NOTICE pNotice;
 //	TNotice.MakeNoticeMsg(&pNotice,type,szTemp);
 //
-//	for(int x = OBJECT_MIN; x < OBJECT_MAX; x++)
+//	for(int x = OBJ_MIN; x < OBJ_MAX; x++)
 //	{
 //		OBJECTSTRUCT *lpObj = (OBJECTSTRUCT*)OBJECT_POINTER(x);
 //

@@ -2,11 +2,11 @@
 
 gHooks Hooks;
 
-
 void gHooks::LoadAll()
 {
 	Hooks.Hook_DataSend();
 	Hooks.Hook_ProtocolCore();
+	Hooks.Hook_DataServerProtocolCore();
 	Hooks.ChangeGSStyle();
 }
 void gHooks::Hook_DataSend()
@@ -19,6 +19,10 @@ void gHooks::Hook_ProtocolCore()
 	Utilits.HookThis((DWORD)&ProtocolCoreEx,oProtocolCore);
 }
 
+void gHooks::Hook_DataServerProtocolCore()
+{
+	Utilits.HookThis((DWORD)&DataServerProtocolCoreEx,oDataServerProtocolCore);
+}
 void gHooks::ChangeGSStyle()
 {
 #ifdef _GS

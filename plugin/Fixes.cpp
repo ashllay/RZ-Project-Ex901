@@ -36,8 +36,7 @@ void cFixes::Crack()
 
 void cFixes::ASMFixes()
 {
-
-	//Configs.LoadFixes();
+	Configs.LoadFixes();
 //==========================================================================
 //-- Degbug Logs
 //==========================================================================
@@ -82,6 +81,8 @@ void cFixes::ASMFixes()
 	Utilits.SetNop(oStrangeLog3,5);
 	//CXMasAttackEvent::_SendDebugMsg
 	Utilits.SetRetn(oXMasDebugMsg);
+	//[CGBeattackRecv] : Magic : %d 
+	Utilits.SetNop(oCGBeattackRecv,6);
 	//Debug Message on gs close
 	BYTE GSCloseH[25] = { 0x90, 0x90, 0x90, 0x90, 0x90, 
 		0x90, 0x90, 0x90, 0x90, 0x90, 
@@ -95,6 +96,10 @@ void cFixes::ASMFixes()
 	//AppointItemDrop.txt Reload Error 	
 	BYTE AppointH[] = {0xE9, 0x5A, 0x01, 0x00, 0x00, 0x90};
 	memcpy((int*) oAppointItemDrop,GSCloseH,sizeof(GSCloseH));
+	//Fix BloodCastle Time
+	Utilits.SetNop(oBCTime, 122);
+	//Fix DevilSquare Time
+	Utilits.SetNop(oDSTime0, 127);
 //==========================================================================
 	//disable CheckSum
 	Utilits.SetRetn(oCheckSum0);

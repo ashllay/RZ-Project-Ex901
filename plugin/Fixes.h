@@ -34,6 +34,8 @@ extern cFixes Fixes;
 #define	g_bAbilityDebug2	0x00A9930C
 #define	oShieldLog			0x00A7E161//5nop
 
+#define	oCGBeattackRecv		0x0087D25B
+
 #define	oAttackPacketLog	0x0084BD3B
 #define	oMagicAttackLog		0x00879D84//
 #define	oDebugOutput		0x00A7D500
@@ -59,6 +61,7 @@ extern cFixes Fixes;
 #define	og_bAbilityDebug	0x00AC552F
 #define	og_nDebugViewFlag	0x00B2DB29
 #define	og_AccessoryOptionFlag	0x00B2EA4E
+
 //-----------------------------------------------------------//
 //				Fixes
 //-----------------------------------------------------------//
@@ -102,6 +105,10 @@ extern cFixes Fixes;
 #define	oInvalidSocket1		0x009818DB
 	// Disable Crash Dump File
 #define	oCrashDump			0x00A13BB0
+	//Fix BloodCastle Time
+#define	oBCTime				0x008CC3AE
+	//Fix DevilSquare Time
+#define	oDSTime0			0x008BCB4E
 #else
 //-----------------------------------------------------------//
 //#				Crack do Gameserver				# //
@@ -143,6 +150,8 @@ extern cFixes Fixes;
 #define	og_nDebugViewFlag	0x00B75FF8//ok
 #define	og_AccessoryOptionFlag	0x00B76F1D//ok
 #define	oAppointItemDrop	0x00829DD6//ok
+#define	oCGBeattackRecv		0x008A81AB//ok
+
 //-----------------------------------------------------------//
 //				Fixes
 //-----------------------------------------------------------//
@@ -170,16 +179,16 @@ extern cFixes Fixes;
 #define	oGSClose2			0x00A5EB4A//ok
 #define	oGSClose3			0x00B589DE//ok
 		//Remove Potion Limit
-#define oMaxPot0			0x0080E313//ok
-#define oMaxPot1			0x009D36A3//ok
-#define oMaxPot2			0x00A627B9//ok
-#define oMaxPot3			0x00A62621//ok
-#define oMaxPot4			0x00A6266D//ok
-#define oMaxPot5			0x00A626B0//ok
-#define oMaxPot6			0x00A62717//ok
-#define oMaxPot7			0x00A62768//ok
-#define oMaxPot8			0x00A627FD//ok
-#define oMaxPot9			0x00861201//ok
+#define oMaxPot0			0x00861203
+#define oMaxPot1			0x00A62623
+#define oMaxPot2			0x00A627B9
+#define oMaxPot3			0x00A62621
+#define oMaxPot4			0x00A6266D
+#define oMaxPot5			0x00A626B0
+#define oMaxPot6			0x00A62717
+#define oMaxPot7			0x00A62768
+#define oMaxPot8			0x00A627FD
+#define oMaxPot9			0x00861201
 	// Invalid Socket FIX
 #define	oInvalidSocket0		0x009C8E2F//ok
 #define	oInvalidSocket1		0x009C8FBB//ok

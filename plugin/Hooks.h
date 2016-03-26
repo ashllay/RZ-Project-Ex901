@@ -8,6 +8,7 @@ public:
 	void LoadAll();
 	void Hook_DataSend();
 	void Hook_ProtocolCore();
+	void Hook_DataServerProtocolCore();
 	void ChangeGSStyle();
 };
 extern gHooks Hooks;

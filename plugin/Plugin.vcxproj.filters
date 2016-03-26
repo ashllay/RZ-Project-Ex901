@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Protocol">
       <UniqueIdentifier>{215e8f42-bb45-4619-ac20-dc5e75af2ed8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\User\Prodef">
-      <UniqueIdentifier>{f11e0dd2-5def-45dd-abba-da904b925032}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\User\Hooks">
       <UniqueIdentifier>{7888fb59-be50-4124-85aa-5c4744a5a370}</UniqueIdentifier>
     </Filter>
@@ -52,6 +49,27 @@
     <Filter Include="Source Files\CashShop">
       <UniqueIdentifier>{3cbf3489-ec00-422e-9932-c58014f2f2cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\LargeRand">
+      <UniqueIdentifier>{ebda9ea2-fb34-4d4a-8ad1-d21ab4d6cbc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Console">
+      <UniqueIdentifier>{4c98e0c6-f18d-4c40-976c-88abca9f1e62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User\OffTrade">
+      <UniqueIdentifier>{db16f622-0448-4320-8069-15bc17c0798c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HexStuff\Prodef">
+      <UniqueIdentifier>{f11e0dd2-5def-45dd-abba-da904b925032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User\GmSystem">
+      <UniqueIdentifier>{a57052b9-2ed2-4c45-9093-35a9ac78de2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User\Commands">
+      <UniqueIdentifier>{b804b876-abbc-4e84-97ad-f753257f6ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\User\Commands\PkClear">
+      <UniqueIdentifier>{ab020bd7-cf74-4f42-93d0-d3dd7d9ddccb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StdAfx.h">
@@ -61,7 +79,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Prodef.h">
-      <Filter>Source Files\User\Prodef</Filter>
+      <Filter>Source Files\HexStuff\Prodef</Filter>
     </ClInclude>
     <ClInclude Include="Hooks.h">
       <Filter>Source Files\User\Hooks</Filter>
@@ -96,13 +114,43 @@
     <ClInclude Include="DSProtocol.h">
       <Filter>Source Files\Protocol\DataServer</Filter>
     </ClInclude>
+    <ClInclude Include="CashShopInGame.h">
+      <Filter>Source Files\CashShop</Filter>
+    </ClInclude>
+    <ClInclude Include="WzReadScript.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LargeRand.h">
+      <Filter>Source Files\LargeRand</Filter>
+    </ClInclude>
+    <ClInclude Include="UserEx.h">
+      <Filter>Source Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Source Files\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="OfflineTrade.h">
+      <Filter>Source Files\User\OffTrade</Filter>
+    </ClInclude>
+    <ClInclude Include="GmSystem.h">
+      <Filter>Source Files\User\GmSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>Source Files\User\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Threading.h">
+      <Filter>Source Files\User</Filter>
+    </ClInclude>
+    <ClInclude Include="PkClear.h">
+      <Filter>Source Files\User\Commands\PkClear</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Prodef.cpp">
-      <Filter>Source Files\User\Prodef</Filter>
+      <Filter>Source Files\HexStuff\Prodef</Filter>
     </ClCompile>
     <ClCompile Include="Hooks.cpp">
       <Filter>Source Files\User\Hooks</Filter>
@@ -127,6 +175,33 @@
     </ClCompile>
     <ClCompile Include="DSProtocol.cpp">
       <Filter>Source Files\Protocol\DataServer</Filter>
+    </ClCompile>
+    <ClCompile Include="CashShopInGame.cpp">
+      <Filter>Source Files\CashShop</Filter>
+    </ClCompile>
+    <ClCompile Include="LargeRand.cpp">
+      <Filter>Source Files\LargeRand</Filter>
+    </ClCompile>
+    <ClCompile Include="UserEx.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Source Files\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="OfflineTrade.cpp">
+      <Filter>Source Files\User\OffTrade</Filter>
+    </ClCompile>
+    <ClCompile Include="GmSystem.cpp">
+      <Filter>Source Files\User\GmSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands.cpp">
+      <Filter>Source Files\User\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Threading.cpp">
+      <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="PkClear.cpp">
+      <Filter>Source Files\User\Commands\PkClear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
